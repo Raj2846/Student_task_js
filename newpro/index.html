@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Task & Reminder Manager</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📚 Student Task Manager</h1>
+        <p>Organize your tasks and never miss a deadline</p>
+      </div>
+
+      <div class="main-content">
+        <div class="stats">
+          <div class="stat-card">
+            <h3 id="totalTasks">0</h3>
+            <p>Total Tasks</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="pendingTasks">0</h3>
+            <p>Pending</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="completedTasks">0</h3>
+            <p>Completed</p>
+          </div>
+        </div>
+
+        <div class="task-form">
+          <h2 style="margin-bottom: 20px; color: #333">➕ Add New Task</h2>
+          <form id="taskForm">
+            <div class="form-group">
+              <label for="taskTitle">Task Title *</label>
+              <input
+                type="text"
+                id="taskTitle"
+                placeholder="e.g., Complete Math Assignment"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="taskDescription">Description</label>
+              <textarea
+                id="taskDescription"
+                placeholder="Add more details about your task..."
+              ></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="taskCategory">Category</label>
+                <select id="taskCategory">
+                  <option value="Assignment">Assignment</option>
+                  <option value="Exam">Exam</option>
+                  <option value="Project">Project</option>
+                  <option value="Study">Study</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="taskPriority">Priority</label>
+                <select id="taskPriority">
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="taskDate">Due Date *</label>
+                <input type="date" id="taskDate" required />
+              </div>
+
+              <div class="form-group">
+                <label for="taskTime">Due Time</label>
+                <input type="time" id="taskTime" />
+              </div>
+            </div>
+
+            <button type="submit" class="btn">Add Task</button>
+          </form>
+        </div>
+
+        <div class="filter-section">
+          <button class="filter-btn active" data-filter="all">All Tasks</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+          <button class="filter-btn" data-filter="high">High Priority</button>
+        </div>
+
+        <div class="tasks-container" id="tasksContainer">
+          <div class="empty-state">
+            <h3>No tasks yet!</h3>
+            <p>Add your first task to get started</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
