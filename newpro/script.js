@@ -180,6 +180,7 @@ function showNotification(message) {
 }
 
 function saveTasks() {
+    //convert to string and save to localStorage
     localStorage.setItem('studentTasks', JSON.stringify(tasks));
 }
 
@@ -188,6 +189,7 @@ function loadTasks() {
     
     if (savedTasks) {
         try {
+            //convert back to array of objects
             tasks = JSON.parse(savedTasks);
         } catch (e) {
             tasks = [];
