@@ -180,20 +180,15 @@ function showNotification(message) {
 }
 
 function saveTasks() {
-    const tasksData = JSON.stringify(tasks);
-    const encoded = btoa(tasksData);
-    document.cookie = `studentTasks=${encoded}; path=/; max-age=31536000`;
+    localStorage.setItem('studentTasks', JSON.stringify(tasks));
 }
 
 function loadTasks() {
-    const cookies = document.cookie.split(';');
-    const tasksCookie = cookies.find(c => c.trim().startsWith('studentTasks='));
+    const savedTasks = localStorage.getItem('studentTasks');
     
-    if (tasksCookie) {
+    if (savedTasks) {
         try {
-            const encoded = tasksCookie.split('=')[1];
-            const decoded = atob(encoded);
-            tasks = JSON.parse(decoded);
+            tasks = JSON.parse(savedTasks);
         } catch (e) {
             tasks = [];
         }
